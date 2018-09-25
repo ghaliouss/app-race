@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary" >Welcome to {{ title }}! -{{getDate() | date :  'dd MMMM yyyy hh:mm:ss'}}</mat-toolbar>
+<div >
+   <input  type="text" [(ngModel)]="title" />
+</div>
+
+
+
+<!--<app-poney appBoost [hasBoost]="poney.boost" *ngFor ="let poney of ponies" [poney]="poney" (win)="handleWin($event)"> </app-poney>-->
+
+
+<div  *ngFor ="let poney of ponies">  {{poney|clone}}</div>
+
+<app-race   *ngFor ="let race of races" [race]="race" > </app-race>

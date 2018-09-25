@@ -1,0 +1,3 @@
+<h2>{{race.name}}</h2>
+
+<app-poney appBoost [hasBoost]="poney.boost" *ngFor ="let poney of ponies | filterponies:race.poneyIds" [poney]="poney" (win)="handleWin($event)"> </app-poney>
