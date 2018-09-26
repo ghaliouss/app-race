@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Race} from './../interfaces/race';
 import {Poney} from './../interfaces/poney';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -17,27 +17,25 @@ API : string ="http://localhost:3000/"
 constructor(private httpClientModule:HttpClient){
 
 }
-  private _races: Race[] = [{
-    "id": 0,
-    "name": "Madrid",
-    "poneyIds": [1, 2]
-  },
-  {
-    "id": 1,
-    "name": "Paris",
-    "poneyIds": [0, 3]
-  }
-]
 
-public getRaceById(id:number):Race{
-return this._races.find((r)=>{ return r.id==id})
+private races_ :Race[]
+public getRaceById(id:number):Observable<Race>{
+  return this.httpClientModule.get(`${this.API}races/${id}`).pipe(map((race)=><Race>race))
 }
 
 get ponies() :Observable<Poney[]>{
   return this.httpClientModule.get(`${this.API}ponies`).pipe(map((ponies)=><Poney []>ponies))
 }
 
-get races():Race[]{
-  return this._races
+get races():Observable<Race[]>{
+  return this.httpClientModule.get(`${this.API}races`).pipe(map((races)=>{
+    this.races_=<Race[]>races;
+    return this.races_;
+  }))
+}
+
+
+create(race:Race):void{
+  this.httpClientModule.put(`${this.API}race/create/`,race);
 }
 }

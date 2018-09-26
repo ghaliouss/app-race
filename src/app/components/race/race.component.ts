@@ -15,6 +15,8 @@ export class RaceComponent implements OnInit {
   
   race:Race
 
+  poneyIds: number []
+
   constructor ( private pumService :PmuService,private route:ActivatedRoute){
     
   }
@@ -30,13 +32,15 @@ handleWin(poney: Poney): void {
     this.ponies$=this.pumService.ponies
     let urlParams
     this.route.params.pipe(map((urlParams)=>urlParams.id)).subscribe((id)=>{
-       // console.log(id)
-        this.race=this.pumService.getRaceById(Number(id))
-        let a =1
-        let b=2
+        console.log(id)
+        this.pumService.getRaceById(id).subscribe(race=>
+         {this.race=race
 
-        a=b
-        console.log(a)
+          this.poneyIds=race.poneyIds
+          
+          console.log(this.poneyIds)
+        
+        })
 
     });
 

@@ -8,6 +8,7 @@ import {
   Race
 } from './../../interfaces/race';
 import { PmuService } from './../../services/pmu.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -19,10 +20,10 @@ export class HomeComponent  {
   constructor ( private pumService :PmuService){
   }
  
-  races: Race[] = this.pumService.races
+  races$: Observable<Race[]> = this.pumService.races
 
 ngOnInit(){
-  this.races=this.pumService.races
+  this.races$=this.pumService.races
 }
 
 }

@@ -1,6 +1,6 @@
 <ul>
 
-<li [routerLink]="['/race',race.id]" *ngFor="let race of races">
+<li [routerLink]="['/race',race.id]" *ngFor="let race of races$ | async">
 
   {{race.name}}
 
