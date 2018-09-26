@@ -10,6 +10,10 @@ import { RaceComponent } from './components/race/race.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ClonePipe } from './pipes/clone.pipe';
 import { FilterponiesPipe } from './pipes/filterponies.pipe';
+import { HomeComponent } from './components/home/home.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
+import { RaceCreateComponent } from './components/race-create/race-create.component';
 
 
 @NgModule({
@@ -19,13 +23,16 @@ import { FilterponiesPipe } from './pipes/filterponies.pipe';
     BoostDirective,
     RaceComponent,
     ClonePipe,
-    FilterponiesPipe
+    FilterponiesPipe,
+    HomeComponent,
+    RaceCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot(APP_ROUTES)
     
   ],
   providers: [],

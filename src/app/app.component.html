@@ -9,6 +9,12 @@
 <!--<app-poney appBoost [hasBoost]="poney.boost" *ngFor ="let poney of ponies" [poney]="poney" (win)="handleWin($event)"> </app-poney>-->
 
 
-<div  *ngFor ="let poney of ponies">  {{poney|clone}}</div>
+<!--<div  *ngFor ="let poney of ponies">  {{poney|clone}}</div>
 
-<app-race   *ngFor ="let race of races" [race]="race" > </app-race>
+<app-race   *ngFor ="let race of races" [race]="race" > </app-race>-->
+
+
+
+<button mat-button color="primary" routerLink="/home"> Home</button>
+<button mat-button color="accent" routerLink="/race-create">Create Race</button>
+<router-outlet> </router-outlet>

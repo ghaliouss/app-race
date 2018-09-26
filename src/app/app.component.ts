@@ -7,6 +7,7 @@ import {
 import {
   Race
 } from './interfaces/race';
+import { PmuService } from './services/pmu.service';
 
 
 @Component({
@@ -16,21 +17,7 @@ import {
 })
 export class AppComponent {
   title = 'race-app';
-
- 
-  races: Race[] = [{
-      "id": 0,
-      "name": "Madrid",
-      "poneyIds": [1, 2]
-    },
-    {
-      "id": 1,
-      "name": "Paris",
-      "poneyIds": [0, 3]
-    }
-  ]
-
-
+  
   getDate(): Date {
     return new Date()
   }
