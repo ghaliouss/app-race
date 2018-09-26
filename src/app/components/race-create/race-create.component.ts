@@ -48,11 +48,13 @@ export class RaceCreateComponent implements OnInit {
 
   
 
-  handleSummit():void {
-   //this.pmu.create();
-
+  handleSubmit():void {
+  
    console.log(this.raceForm);
    console.log(this.nameCtrl);
    console.log(this.poneyIdsCtrl);
+
+   this.pmu.create(this.raceForm.value).subscribe((race)=>{console.log("race is saved"+race.id)});
+
   }
 }

@@ -1,5 +1,6 @@
 <h1>Créer une course</h1>
-<form (summit)="handleSummit()" [formGroup] ="raceForm">
+
+<form (submit)="handleSubmit()" [formGroup] ="raceForm">
     <mat-form-field >
         <input [formControl]="nameCtrl"   matInput placeholder="Name"    nam="name">
     </mat-form-field>
@@ -13,6 +14,6 @@
 
     <br />
 
-      <button mat-raised-button color="primary" [disabled]="raceForm.invalid">Create</button>
+      <button mat-raised-button color="primary" [disabled]="raceForm.invalid" >Create</button>
       
 </form>

@@ -35,7 +35,7 @@ get races():Observable<Race[]>{
 }
 
 
-create(race:Race):void{
-  this.httpClientModule.put(`${this.API}race/create/`,race);
+create(race:Race):Observable<Race>{
+  return this.httpClientModule.post(`${this.API}races`,race).pipe(map(race => <Race>race));
 }
 }
