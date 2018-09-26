@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { RaceCreateComponent } from './components/race-create/race-create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RaceCreateComponent } from './components/race-create/race-create.compon
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    HttpClientModule
     
   ],
   providers: [],

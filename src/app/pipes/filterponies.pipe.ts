@@ -8,7 +8,7 @@ import {
 export class FilterponiesPipe implements PipeTransform {
 
   transform(ponies: Poney[], poneyIds: number []): Poney[] {
-    return ponies.filter((p)=>poneyIds.includes(p.id ));
+    return ponies?ponies.filter((p)=>poneyIds.includes(p.id )):[];
   }
 
 }
