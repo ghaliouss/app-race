@@ -1,11 +1,11 @@
 <h1>Créer une course</h1>
-<form (summit)="handleSummit()">
+<form (summit)="handleSummit()" [formGroup] ="raceForm">
     <mat-form-field >
-        <input required   matInput placeholder="Name"    nam="name">
+        <input [formControl]="nameCtrl"   matInput placeholder="Name"    nam="name">
     </mat-form-field>
     <br />
     <mat-form-field >
-      <mat-select placeholder="Ponies"  name="poneyIds">
+      <mat-select [formControl]="poneyIdsCtrl" placeholder="Ponies"  multiple name="poneyIds">
         <mat-option   *ngFor="let poney of ponies$ |async"   [value]="poney.id"> {{poney.name}}</mat-option>
       </mat-select>
   </mat-form-field>
@@ -13,6 +13,6 @@
 
     <br />
 
-      <button mat-raised-button color="primary">Create</button>
+      <button mat-raised-button color="primary" [disabled]="raceForm.invalid">Create</button>
       
 </form>
